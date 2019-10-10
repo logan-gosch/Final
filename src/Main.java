@@ -1,37 +1,60 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args){
 
         String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
-        int randomSuit1;
-        String userSuits1 = "Hi";
-        int userNumber1;
-        String userAJQK1 = "Hi";
+        int[] randomSuits = new int[4];
+        String usedSuits = "Hi";
+        int[] numbers = new int[3];
+        String AJQK = "Hi";
+        int userTotal;
+        int computerTotal;
+        int hitOrStand;
 
-        randomSuit1 = (1 + (int)(Math.random() * 4));
-        userNumber1 = (1 + (int)(Math.random() * 13));
+        for (int i = 0; i < 3; ++i){
+            randomSuits[i] = (1 + (int)(Math.random() * 4));
+            numbers[i] = (1 + (int)(Math.random() * 13));
 
-        if (randomSuit1 == 1)
-            userSuits1 = suits[0];
-        else if (randomSuit1 == 2)
-            userSuits1 = suits[1];
-        else if (randomSuit1 == 3)
-            userSuits1 = suits[2];
-        else if (randomSuit1 == 4)
-            userSuits1 = suits[3];
+            if (randomSuits[i] == 1)
+                usedSuits = suits[0];
+            else if (randomSuits[i] == 2)
+                usedSuits = suits[1];
+            else if (randomSuits[i] == 3)
+                usedSuits = suits[2];
+            else if (randomSuits[i] == 4)
+                usedSuits = suits[3];
 
-        if (userNumber1 == 1)
-            userAJQK1 = "Ace";
-        else if (userNumber1 == 11)
-            userAJQK1 = "Jack";
-        else if (userNumber1 == 12)
-            userAJQK1 = "Queen";
-        else if (userNumber1 == 13)
-            userAJQK1 = "King";
+            if (numbers[i] == 1)
+                AJQK = "Ace";
+            else if (numbers[i] == 11)
+                AJQK = "Jack";
+            else if (numbers[i] == 12)
+                AJQK = "Queen";
+            else if (numbers[i] == 13)
+                AJQK = "King";
 
-        if (userNumber1 == 1 || userNumber1 == 11 || userNumber1 == 12 || userNumber1 == 13)
-            System.out.println("You have a " + userAJQK1 + " of " + userSuits1 + ".");
-        else
-            System.out.println("You have a " + userNumber1 + " of " + userSuits1 + ".");
+            if (i == 0 || i == 1){
+                if (numbers[i] == 1 || numbers[i] == 11 || numbers[i] == 12 || numbers[i] == 13)
+                    System.out.println("You have a " + AJQK + " of " + usedSuits + ".");
+                else
+                    System.out.println("You have a " + numbers[i] + " of " + usedSuits + ".");
+            }
+            else{
+                if (numbers[i] == 1 || numbers[i] == 11 || numbers[i] == 12 || numbers[i] == 13)
+                    System.out.println("\nComputer has a " + AJQK + " of " + usedSuits + ".");
+                else
+                    System.out.println("\nComputer has a " + numbers[i] + " of " + usedSuits + ".");
+            }
+        }
+
+        userTotal = numbers[0] + numbers[1];
+        System.out.println("\nYou have " + userTotal + " in total.");
+        computerTotal = numbers[2];
+        System.out.println("Computer has " + computerTotal + " in total.\n");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Do you want to (1)hit or (2)stand?");
+        hitOrStand = input.nextInt();
     }
 }
