@@ -54,7 +54,18 @@ public class Main {
         computerTotal = numbers[2];
         System.out.println("Computer has " + computerTotal + " in total.\n");
         Scanner input = new Scanner(System.in);
-        System.out.println("Do you want to (1)hit or (2)stand?");
-        hitOrStand = input.nextInt();
+
+        if (userTotal == 21){
+            System.out.println("Congratulations you got black jack.");
+        }
+        else if (userTotal > 21){
+            System.out.println("Sorry you got bust.");
+        }
+        else {
+            System.out.println("Do you want to (1)hit or (2)stand?");
+            hitOrStand = input.nextInt();
+        }
+
+
     }
 }
