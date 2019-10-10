@@ -49,6 +49,13 @@ public class Main {
             }
         }
 
+        if (numbers[0] == 11 || numbers[0] == 12 || numbers[0] == 13){
+            numbers[0] = 10;
+        }
+        if (numbers[1] == 11 || numbers[1] == 12 || numbers[1] == 12){
+            numbers[1] = 10;
+        }
+
         userTotal = numbers[0] + numbers[1];
         System.out.println("\nYou have " + userTotal + " in total.");
         computerTotal = numbers[2];
@@ -61,11 +68,7 @@ public class Main {
         else if (userTotal > 21){
             System.out.println("Sorry you got bust.");
         }
-        else {
-            System.out.println("Do you want to (1)hit or (2)stand?");
-            hitOrStand = input.nextInt();
-        }
-
+        
 
     }
 }
