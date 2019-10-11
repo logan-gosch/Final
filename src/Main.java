@@ -68,7 +68,5 @@ public class Main {
         else if (userTotal > 21){
             System.out.println("Sorry you got bust.");
         }
-        
-
     }
 }
