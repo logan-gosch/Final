@@ -2,6 +2,7 @@ package Main;
 
 public class Graphics {
     public static void main(String[] args){
+    	System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("BBBBBBBBBBBBBBBB     LLLLL              AAAAAA        CCCCCCCCCCCCCC   KKKKKK      KKKK ");
         System.out.println("BBBBBBBBBBBBBBBB     LLLLL             AAAAAAAA       CCCCCCCCCCCCCC   KKKKKK     KKKK");
         System.out.println("BBB           BB     LLLLL            AA      AA      CCC              KKKKKK    KKKK");
