@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="feaf038e-7be9-4613-b6b2-0b7913ca155b" name="Default" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
+
+    <list default="true" id="77b144ac-e6aa-4c51-b322-a4bd91978a85" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Graphics.java" pinned="false" current-in-tab="false">
@@ -32,6 +33,8 @@
       </file>
     </leaf>
   </component>
+
+
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -42,6 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -82,6 +86,11 @@
         </subPane>
       </pane>
     </panes>
+
+  <component name="ProjectId" id="1Rz3CtJZWG7O38Bwp09IL2RSKv3" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -95,11 +104,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+
+  <component name="RunManager">
+
     <configuration name="Graphics" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Graphics" />
       <module name="Final" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -154,6 +166,36 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+
         <item itemvalue="Application.Graphics" />
       </list>
     </recent_temporary>
@@ -163,6 +205,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+
       <changelist id="feaf038e-7be9-4613-b6b2-0b7913ca155b" name="Default" comment="" />
       <created>1570629596917</created>
       <option name="number" value="Default" />
@@ -255,5 +298,25 @@
         </state>
       </provider>
     </entry>
+
+      <changelist id="77b144ac-e6aa-4c51-b322-a4bd91978a85" name="Default" comment="" />
+      <created>1570629597957</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570629597957</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+
   </component>
 </project>
