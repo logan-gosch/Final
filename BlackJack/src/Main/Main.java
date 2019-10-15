@@ -5,29 +5,33 @@ import java.util.Scanner;
 class Main{
 
 public static void main(String[] args){
+	
+	//Scanner for the user to enter info
+	 Scanner userInput = new Scanner(System.in);
+	 double playerMoney;
  
- Graphics.graphics();
+	 Graphics.intro();
  
- //playingDeck will be the deck the dealer holds
- Deck playingDeck = new Deck();
- playingDeck.createFullDeck();
- playingDeck.shuffle();
+	 //playingDeck will be the deck the dealer holds
+	 Deck playingDeck = new Deck();
+	 playingDeck.createFullDeck();
+	 playingDeck.shuffle();
+	 
+	 //playerCards will be the cards the player has in their hand
+	 Deck playerCards = new Deck();
+	 //playerMoney holds players cash - we will be lazy and use doubles instead of bigdecimals
+		System.out.println("Enter an amount of cash you would like to exchange for chips");
+		playerMoney = userInput.nextDouble();
+	 //dealerCards will be the cards the dealer has in their hand
+	 Deck dealerCards = new Deck();
  
- //playerCards will be the cards the player has in their hand
- Deck playerCards = new Deck();
- //playerMoney holds players cash - we will be lazy and use doubles instead of bigdecimals
- double playerMoney = 1000.00;
- //dealerCards will be the cards the dealer has in their hand
- Deck dealerCards = new Deck();
- 
- //Scanner for user input
- Scanner userInput = new Scanner(System.in);
+
  
  //Play the game while the player has money
  //Game loop
 while(playerMoney>0){
 //Take Bet
-System.out.println("You have $" + playerMoney + ", how much would you like to bet?");
+System.out.println("You have " + playerMoney + " chips, how much would you like to bet?");
 double playerBet = userInput.nextDouble();
 boolean endRound = false;
 if(playerBet > playerMoney){
@@ -45,40 +49,40 @@ playerCards.draw(playingDeck);
 dealerCards.draw(playingDeck);
 dealerCards.draw(playingDeck);
    
-   //While loop for drawing new cards
-   while(true)
-   {
-     //Display player cards
-     System.out.println("Your Hand:" + playerCards.toString());
-     
-     //Display Value
-     System.out.println("Your hand is currently valued at: " + playerCards.cardsValue());
-     
-     //Display dealer cards
-     System.out.println("Dealer Hand: " + dealerCards.getCard(0).toString() + " and [hidden]");
-     
-     //What do they want to do
-     System.out.println("Would you like to (1)Hit or (2)Stand");
-     int response = userInput.nextInt(); 
-     //They hit
-     if(response == 1){
-       playerCards.draw(playingDeck);
-       System.out.println("You draw a:" + playerCards.getCard(playerCards.deckSize()-1).toString());
-       //Bust if they go over 21
-       if(playerCards.cardsValue() > 21){
-         System.out.println("Bust. Currently valued at: " + playerCards.cardsValue());
-         playerMoney -= playerBet;
-         endRound = true;
-         break;
-       }
-     }
-     
-     //Stand
-     if(response == 2){
-       break;
-     }
-     
-   }
+	   //While loop for drawing new cards
+	   while(true)
+	   {
+	     //Display player cards
+	     System.out.println("Your Hand:" + playerCards.toString());
+	     
+	     //Display Value
+	     System.out.println("Your hand is currently valued at: " + playerCards.cardsValue());
+	     
+	     //Display dealer cards
+	     System.out.println("Dealer Hand: " + dealerCards.getCard(0).toString() + " and [hidden]");
+	     
+	     //What do they want to do
+	     System.out.println("Would you like to (1)Hit or (2)Stand");
+	     int response = userInput.nextInt(); 
+	     //They hit
+	     if(response == 1){
+	       playerCards.draw(playingDeck);
+	       System.out.println("You draw a:" + playerCards.getCard(playerCards.deckSize()-1).toString());
+	       //Bust if they go over 21
+	       if(playerCards.cardsValue() > 21){
+	         System.out.println("Bust. Currently valued at: " + playerCards.cardsValue());
+	         playerMoney -= playerBet;
+	         endRound = true;
+	         break;
+	       }
+	     }
+	     
+	     //Stand
+	     if(response == 2){
+	       break;
+	     }
+	     
+	   }
      
    //Reveal Dealer Cards
    System.out.println("Dealer Cards:" + dealerCards.toString());
@@ -125,7 +129,7 @@ dealerCards.draw(playingDeck);
    
  }
  //Game is over
- System.out.println("Game over! You lost all your money. :(");
+ Graphics.outro();
  
  //Close Scanner
  userInput.close();
