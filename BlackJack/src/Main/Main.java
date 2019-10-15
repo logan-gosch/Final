@@ -1,75 +1,137 @@
 package Main;
+
 import java.util.Scanner;
 
-public class Main {
+class Main{
 
-    public static void main(String[] args){
-    	
-    	Graphics.graphics();
-
-        String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
-        int[] randomSuits = new int[4];
-        String usedSuits = "Hi";
-        int[] numbers = new int[3];
-        String AJQK = "Hi";
-        int userTotal;
-        int computerTotal;
-        int hitOrStand;
-
-        for (int i = 0; i < 3; ++i){
-            randomSuits[i] = (1 + (int)(Math.random() * 4));
-            numbers[i] = (1 + (int)(Math.random() * 13));
-
-            if (randomSuits[i] == 1)
-                usedSuits = suits[0];
-            else if (randomSuits[i] == 2)
-                usedSuits = suits[1];
-            else if (randomSuits[i] == 3)
-                usedSuits = suits[2];
-            else if (randomSuits[i] == 4)
-                usedSuits = suits[3];
-
-            if (numbers[i] == 1)
-                AJQK = "Ace";
-            else if (numbers[i] == 11)
-                AJQK = "Jack";
-            else if (numbers[i] == 12)
-                AJQK = "Queen";
-            else if (numbers[i] == 13)
-                AJQK = "King";
-
-            if (i == 0 || i == 1){
-                if (numbers[i] == 1 || numbers[i] == 11 || numbers[i] == 12 || numbers[i] == 13)
-                    System.out.println("You have a " + AJQK + " of " + usedSuits + ".");
-                else
-                    System.out.println("You have a " + numbers[i] + " of " + usedSuits + ".");
-            }
-            else{
-                if (numbers[i] == 1 || numbers[i] == 11 || numbers[i] == 12 || numbers[i] == 13)
-                    System.out.println("\nComputer has a " + AJQK + " of " + usedSuits + ".");
-                else
-                    System.out.println("\nComputer has a " + numbers[i] + " of " + usedSuits + ".");
-            }
-        }
-
-        if (numbers[0] == 11 || numbers[0] == 12 || numbers[0] == 13){
-            numbers[0] = 10;
-        }
-        if (numbers[1] == 11 || numbers[1] == 12 || numbers[1] == 12){
-            numbers[1] = 10;
-        }
-
-        userTotal = numbers[0] + numbers[1];
-        System.out.println("\nYou have " + userTotal + " in total.");
-        computerTotal = numbers[2];
-        System.out.println("Computer has " + computerTotal + " in total.\n");
-        Scanner input = new Scanner(System.in);
-
-        if (userTotal == 21){
-            System.out.println("Congratulations you got black jack.");
-        }
-        else if (userTotal > 21){
-            System.out.println("Sorry you got bust.");
-        }
-    }
+public static void main(String[] args){
+ 
+ Graphics.graphics();
+ 
+ //playingDeck will be the deck the dealer holds
+ Deck playingDeck = new Deck();
+ playingDeck.createFullDeck();
+ playingDeck.shuffle();
+ 
+ //playerCards will be the cards the player has in their hand
+ Deck playerCards = new Deck();
+ //playerMoney holds players cash - we will be lazy and use doubles instead of bigdecimals
+ double playerMoney = 1000.00;
+ //dealerCards will be the cards the dealer has in their hand
+ Deck dealerCards = new Deck();
+ 
+ //Scanner for user input
+ Scanner userInput = new Scanner(System.in);
+ 
+ //Play the game while the player has money
+ //Game loop
+while(playerMoney>0){
+//Take Bet
+System.out.println("You have $" + playerMoney + ", how much would you like to bet?");
+double playerBet = userInput.nextDouble();
+boolean endRound = false;
+if(playerBet > playerMoney){
+ //Break if they bet too much
+ System.out.println("You cannot bet more than you have.");
+ break;
 }
+
+System.out.println("Dealing...");
+//Player gets two cards
+playerCards.draw(playingDeck);
+playerCards.draw(playingDeck);
+
+//Dealer gets two cards
+dealerCards.draw(playingDeck);
+dealerCards.draw(playingDeck);
+   
+   //While loop for drawing new cards
+   while(true)
+   {
+     //Display player cards
+     System.out.println("Your Hand:" + playerCards.toString());
+     
+     //Display Value
+     System.out.println("Your hand is currently valued at: " + playerCards.cardsValue());
+     
+     //Display dealer cards
+     System.out.println("Dealer Hand: " + dealerCards.getCard(0).toString() + " and [hidden]");
+     
+     //What do they want to do
+     System.out.println("Would you like to (1)Hit or (2)Stand");
+     int response = userInput.nextInt(); 
+     //They hit
+     if(response == 1){
+       playerCards.draw(playingDeck);
+       System.out.println("You draw a:" + playerCards.getCard(playerCards.deckSize()-1).toString());
+       //Bust if they go over 21
+       if(playerCards.cardsValue() > 21){
+         System.out.println("Bust. Currently valued at: " + playerCards.cardsValue());
+         playerMoney -= playerBet;
+         endRound = true;
+         break;
+       }
+     }
+     
+     //Stand
+     if(response == 2){
+       break;
+     }
+     
+   }
+     
+   //Reveal Dealer Cards
+   System.out.println("Dealer Cards:" + dealerCards.toString());
+   //See if dealer has more points than player
+   if((dealerCards.cardsValue() > playerCards.cardsValue())&&endRound == false){
+     System.out.println("Dealer beats you " + dealerCards.cardsValue() + " to " + playerCards.cardsValue());
+     playerMoney -= playerBet;
+     endRound = true;
+   }
+   //Dealer hits at 16 stands at 17
+   while((dealerCards.cardsValue() < 17) && endRound == false){
+     dealerCards.draw(playingDeck);
+     System.out.println("Dealer draws: " + dealerCards.getCard(dealerCards.deckSize()-1).toString());
+   }
+   //Display value of dealer
+   System.out.println("Dealers hand value: " + dealerCards.cardsValue());
+   //Determine if dealer busted
+   if((dealerCards.cardsValue()>21)&& endRound == false){
+     System.out.println("Dealer Busts. You win!");
+     playerMoney += playerBet;
+     endRound = true;
+   }
+   //Determine if push
+   if((dealerCards.cardsValue() == playerCards.cardsValue()) && endRound == false){
+     System.out.println("Push.");
+     endRound = true;
+   }
+   //Determine if player wins
+   if((playerCards.cardsValue() > dealerCards.cardsValue()) && endRound == false){
+     System.out.println("You win the hand.");
+     playerMoney += playerBet;
+     endRound = true;
+   }
+   else if(endRound == false) //dealer wins
+   {
+     System.out.println("Dealer wins.");
+     playerMoney -= playerBet;
+   }
+
+   //End of hand - put cards back in deck
+   playerCards.moveAllToDeck(playingDeck);
+   dealerCards.moveAllToDeck(playingDeck);
+   System.out.println("End of Hand.");
+   
+ }
+ //Game is over
+ System.out.println("Game over! You lost all your money. :(");
+ 
+ //Close Scanner
+ userInput.close();
+ 
+}
+
+
+}
+
