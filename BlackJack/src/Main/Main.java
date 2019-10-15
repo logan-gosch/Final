@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args){
+    	
+    	Graphics.graphics();
 
         String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
         int[] randomSuits = new int[4];

@@ -1,6 +1,6 @@
 package Main;
 
-public enum Suit
+public enum Numbers
 {
 	HEART, SPADE, DIAMOND, CLUB
 }
