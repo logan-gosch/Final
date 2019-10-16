@@ -8,19 +8,18 @@ public class Deck {
 	private ArrayList<Card> cards;
   
 	public Deck(){
-		//Create a new deck of playing cards
+		//This creates a new deck
 		this.cards = new ArrayList<Card>();
   
 	}
   
-	//Add 52 playing cards to a deck
+	//This makes it so there are 52 cards and no duplicates
 	public void createFullDeck(){
-		//Generate Cards
 		//Loop Through Suits
 		for(Suit cardSuit : Suit.values()){
 			//Loop through Values
 			for(Value cardValue : Value.values()){
-				//Add new card to the mix
+				//Add a new card
 				this.cards.add(new Card(cardSuit,cardValue));
 			}
 		}
@@ -36,14 +35,14 @@ public class Deck {
 		int randomCardIndex = 0;
 		int originalSize = this.cards.size();
 		for(int i = 0; i<originalSize;i++){
-			//gen random num according to int randomNum = rand.nextInt((max - min) + 1) + min;
+			//generate random number
 			randomCardIndex = random.nextInt((this.cards.size()-1 - 0) + 1) + 0;
-			//throw random card into new deck
+			//throw random card into the new deck
 			tmpDeck.add(this.cards.get(randomCardIndex));
-			//remove picked from old deck
+			//remove picked from the old deck
 			this.cards.remove(randomCardIndex);
 		}
-		//set this.deck to our newly shuffled deck
+		//set this.deck to the new deck
 		this.cards = tmpDeck;
 	}
   
@@ -52,7 +51,7 @@ public class Deck {
 	public void removeCard(int i){
 		this.cards.remove(i);
 	}
-	//Get card from deck
+	//Get a card from deck
 	public Card getCard(int i){
 		return this.cards.get(i);
 	}
@@ -122,7 +121,7 @@ public class Deck {
 		//Determine the total current value with aces
 		//Aces worth 11 or 1 - if 11 would go over 21 make it worth 1
 		for(int i = 0; i < aces; i++){
-			//If they're already at over 10 getting an ace valued at 11 would put them up to 22, so make ace worth one
+			//If they're already over 10 getting an ace valued at 11 would put them up to 22, so make ace worth one
 			if (totalValue > 10){
 				totalValue += 1;
 			}
@@ -131,7 +130,6 @@ public class Deck {
 			}
 		}
     
-		//Return
 		return totalValue;
            
 	}
