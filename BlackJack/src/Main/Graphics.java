@@ -29,4 +29,18 @@ public class Graphics {
         System.out.println("         YYYY          OOOOOOOOOOOOOO   UUUUUUUUUUUUU        LLLLLLLLLLLLL   OOOOOOOOOOOOO    SSSSSSSSSS   EEEEEEEEEEEE");
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
     }
+    public static void outroWin() {
+    	System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("  YYYYY        YYYYY   OOOOOOOOOOOOOO   UU         UU        WWW                   WWW    IIIIIIIIIII   NNNNNN     NNN");
+        System.out.println("   YYYYY      YYYYY    OOOOOOOOOOOOOO   UU         UU        WWW                   WWW    IIIIIIIIIII   NNN NNN    NNN");
+        System.out.println("    YYYYY    YYYYY     OO          OO   UU         UU        WWW                   WWW         II       NNN  NNN   NNN");
+        System.out.println("     YYYYY  YYYYY      OO          OO   UU         U         WWW      WWWWWW       WWW         II       NNN  NNN   NNN");
+        System.out.println("      YYYYYYYYYY       OO          OO   UU         UU        WWW     WWW  WWW     WWW          II       NNN   NNN  NNN");
+        System.out.println("       YYYYYYYY        OO          OO   UU         UU         WWW    WWW  WWW    WWW           II       NNN   NNN  NNN");
+        System.out.println("         YYYY          OO          OO   UU         UU          WWW   WWW  WWW   WWW            II       NNN    NNN NNN");
+        System.out.println("         YYYY          OO          OO   UU         UU           WWW  WWW  WWW  WWW             II       NNN    NNN NNN");
+        System.out.println("         YYYY          OOOOOOOOOOOOOO   UUUUUUUUUUUUU             WWWWWW  WWWWWW          IIIIIIIIIIII  NNN     NNNNNN");
+        System.out.println("         YYYY          OOOOOOOOOOOOOO   UUUUUUUUUUUUU             WWWWW    WWWWW          IIIIIIIIIIII  NNN     NNNNNN");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+    }
 }
