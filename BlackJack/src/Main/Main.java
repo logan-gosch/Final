@@ -145,7 +145,7 @@ class Main{
 			}
 		}
 	 
-		//Game is over
+			//Game is over
 			if(playerMoney < moneyStartedWith) {
 				playerMoneyEarnedOrLost = moneyStartedWith - playerMoney;
 				System.out.println("You lost $" + playerMoneyEarnedOrLost);
