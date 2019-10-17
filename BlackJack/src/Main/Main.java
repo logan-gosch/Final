@@ -136,25 +136,23 @@ class Main{
 			if(playerMoney > 0) {
 				System.out.println("You have " + playerMoney + " chips.\nIf you want to keep playing press (1).\nIf you want to quit press (2).");
 				keepPlayingOrQuit = userInput.nextInt();
-				if(keepPlayingOrQuit == 2) {
-					playerMoneyEarnedOrLost = moneyStartedWith - playerMoney;
-					if(playerMoneyEarnedOrLost < 0) {
-						playerMoneyEarnedOrLost = playerMoney - moneyStartedWith;
+					if(keepPlayingOrQuit == 2) {
+						break;
 					}
-					break;
 				}
-				
+			else {
+				break;
 			}
-			
 		}
-			
 	 
 		//Game is over
-			if(playerMoneyEarnedOrLost < moneyStartedWith) {
+			if(playerMoney < moneyStartedWith) {
+				playerMoneyEarnedOrLost = moneyStartedWith - playerMoney;
 				System.out.println("You lost $" + playerMoneyEarnedOrLost);
 				Graphics.outroLoss();
 			}
 			else{
+				playerMoneyEarnedOrLost = playerMoney - moneyStartedWith;
 				System.out.println("Congratulations. You won $" + playerMoneyEarnedOrLost);
 				Graphics.outroWin();
 			}
