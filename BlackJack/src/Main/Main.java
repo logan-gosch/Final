@@ -152,10 +152,11 @@ class Main{
 		//Game is over
 			if(playerMoneyEarnedOrLost < moneyStartedWith) {
 				System.out.println("You lost $" + playerMoneyEarnedOrLost);
-				Graphics.outro();
+				Graphics.outroLoss();
 			}
 			else{
 				System.out.println("Congratulations. You won $" + playerMoneyEarnedOrLost);
+				Graphics.outroWin();
 			}
 		
 			//Closes Scanner
