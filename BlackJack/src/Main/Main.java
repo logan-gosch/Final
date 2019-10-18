@@ -12,8 +12,7 @@ class Main{
 		double moneyStartedWith;
 		double playerMoneyEarnedOrLost = 0;
 		int keepPlayingOrQuit = 1;
-	 
-	
+
 		Graphics.intro();
 	 
 		//playingDeck will be the deck you are using.

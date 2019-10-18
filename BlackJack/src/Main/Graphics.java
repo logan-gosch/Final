@@ -1,6 +1,15 @@
 package Main;
 
 public class Graphics {
+	public static void displayGraphics() throws InterruptedException {
+        
+        for(int i = 0; i<7; i++){
+            Thread.sleep(350);
+            System.out.print(".");
+        }
+        System.out.print(".\n\n");
+    }
+	
     public static void intro(){
     	//Title
     	System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------");
