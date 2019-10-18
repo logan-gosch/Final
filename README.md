@@ -1,5 +1,5 @@
 # Final - Blackjack by Alex and Logan
-<img src="BlackJack_JavaFinal.jpg" height = "400" width ="600">
+<img src="BlackJack_JavaFinal.jpg" height = "600" width ="600">
 
 This is our game game adaptation of Blackjack or 21.
 It functions as if you were playing it in the real world.
